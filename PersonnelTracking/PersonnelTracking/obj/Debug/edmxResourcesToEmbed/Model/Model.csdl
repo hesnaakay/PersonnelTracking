@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PersonnelPermitTrackingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="PersonnelPermitTrackingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Permits" EntityType="PersonnelPermitTrackingModel.Permit" />
+    <EntitySet Name="Personnels" EntityType="PersonnelPermitTrackingModel.Personnel" />
+    <AssociationSet Name="FK_Personnel_Permit" Association="PersonnelPermitTrackingModel.FK_Personnel_Permit">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Permit" EntitySet="Permits" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Permit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="startingdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="duedate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="personnel_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Personnel" Relationship="PersonnelPermitTrackingModel.FK_Personnel_Permit" FromRole="Permit" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Personnel">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phonenumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="totalpermit" Type="Int32" Nullable="false" />
+    <Property Name="usedpermit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Permits" Relationship="PersonnelPermitTrackingModel.FK_Personnel_Permit" FromRole="Personnel" ToRole="Permit" />
+  </EntityType>
+  <Association Name="FK_Personnel_Permit">
+    <End Type="PersonnelPermitTrackingModel.Personnel" Role="Personnel" Multiplicity="1" />
+    <End Type="PersonnelPermitTrackingModel.Permit" Role="Permit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Permit">
+        <PropertyRef Name="personnel_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

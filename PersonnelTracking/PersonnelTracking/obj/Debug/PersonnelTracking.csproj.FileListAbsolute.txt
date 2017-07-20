@@ -1,0 +1,10 @@
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\PersonnelTracking.dll.config
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\PersonnelTracking.dll
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\PersonnelTracking.pdb
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\EntityFramework.dll
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\EntityFramework.SqlServer.dll
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\EntityFramework.xml
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\bin\EntityFramework.SqlServer.xml
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\obj\Debug\PersonnelTracking.dll
+c:\users\hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\obj\Debug\PersonnelTracking.pdb
+C:\Users\Hesna\documents\visual studio 2013\Projects\PersonnelTracking\PersonnelTracking\obj\Debug\PersonnelTracking.csprojResolveAssemblyReference.cache
